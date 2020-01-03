@@ -1,6 +1,6 @@
 asn1crypto==0.24.0
 Click==7.0
-cryptography==2.1.4
+cryptography==2.3
 Django==1.11
 django-excel-response2==2.0.8
 django-six==1.0.4
