@@ -2,31 +2,69 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="data:image/png;base64,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"
+                    alt="" style="width:50px;height:50px;">
+            </div>
+            <!-- adding search form -->
+            <div class="col-sm-4 col-md-4 navbar-right">
 
-        <div class="navbar-brand" href="{% url 'index' %}">HOME</div>
-        <div class="navbar-brand" href="{% url 'index' %}">ABOUT</div>
-        <div class="navbar-brand" href="{% url 'index' %}">SERVICES</div>
-        <div class="navbar-brand" href="{% url 'index' %}">CONTACT</div>
-        
-        
-      </div>
+                <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
-      <div class="col-sm-4 col-md-4 navbar-right">
-
-       
-      </div>
-    </div>
-  </nav>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search " name="users">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" type="submit"><i
+                                    class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- search form end -->
+            <div class="col-sm-6 col-md-6">
+                {% if user.is_authenticated %}
+                <ul>
+                    <li class="dropdown">
+                        <div class="navbar-brand"> <a href="#" class="dropdown-toggle btn btn-default"
+                                data-toggle="dropdown" role="button" aria-expanded="false">ACCOUNT
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="/accounts/password/change">Change Password</a>
+                                </li>
+                                <li>
+                                    <a href="/logout">Logout</a>
+                                </li>
+                        </div>
+                </ul>
+                </li>
+                </ul>
+                {% else %}
+                <li>
+                    <div class="navbar-brand"><a class='btn btn-primary' href="/accounts/login">LOGIN</a></div>
+                    <div class="navbar-brand"><a class='btn btn-primary' href="/accounts/register">SIGNUP</a></div>
+                </li>
+                </li>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
 </body>
 
 </html>
+
+
+
+<!-- long horn dic
+kamusi karne
+Dusk in the morning
+bible -->
