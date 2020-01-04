@@ -37,4 +37,18 @@ class Image(models.Model):
 
     '''Method to filter database results'''
 
+    @classmethod
+    def showall_images(cls):
+        images = cls.objects.all()
+        return images
+
+    def __str__(self):
+        return self.caption
+
+    def get_absolute_url(self):
+        return reverse('home')
+
+    def total_likes(self):
+        return self.likes.count()
+    
     
