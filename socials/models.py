@@ -18,9 +18,6 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    
-
-
 class Image(models.Model):
 
     '''
@@ -54,11 +51,9 @@ class Image(models.Model):
     @property
     def get_comments(self):
         return self.image_comments.all()
-    
-    
+   
     def delete_post(self):
         return self.delete()
-    
     
 
 class Comments (models.Model):
