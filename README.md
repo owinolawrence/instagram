@@ -10,7 +10,7 @@
 ## CLONE
 Fork this repository or clone it to your local machine on ubuntu use the following commands
 
-git clone https://github.com/owinolawrence/instagram.git
+git clone this repo https://github.com/owinolawrence/instagram.git
 
 ## USER STORY
 As a user of the application you will be able to:
