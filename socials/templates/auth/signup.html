@@ -12,7 +12,22 @@
         <div class="col-md-8 signup text-center mt-5 ">
             <h1 class='logo'>My Profile</h1>
             <p style="font-weight: 600;" class="signup">Sign up to see photos from your friends</p>
-            
+            <form method="post" id='mysignup'>
+                {% csrf_token %}
+
+                {% for field in form%}
+                <p>
+                    <small>{{ field.label_tag }}</small> <br>
+                    <span id='field'>{{ field }}</span>
+                    <br>
+                    {% for error in field.errors %}
+                    <p style="color: rgb(255, 208, 0)">{{ error }}</p>
+                    {% endfor %}
+                </p>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary btn-lg ">Sign up</button>
+                <p>Have an account?<a href="{% url 'login' %}">Sign In</a></p>
+            </form>
 
         </div>
         <div class="col-md-2 ">
