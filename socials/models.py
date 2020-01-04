@@ -51,4 +51,13 @@ class Image(models.Model):
     def total_likes(self):
         return self.likes.count()
     
+    @property
+    def get_comments(self):
+        return self.image_comments.all()
     
+    
+    def delete_post(self):
+        return self.delete()
+    
+    
+
