@@ -1,18 +1,23 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
+#import user method for django
+from django.contrib.auth.models import User
+from django.urls import reverse
+import datetime
 
-# Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length = 30)
-    
+
+class Profile(models.Model):
+    '''
+    describe the account owner using text
+    '''
+    user = models.OneToOneField(User, on_delete=models.CASCADE,)
+    profile_pic = models.ImageField(default = 'default.jpg',upload_to = 'ProfilePIcture/')
+    avatar = models.ImageField(upload_to='avatar/')
+    bio = models.CharField(max_length=30)
+    date = models.DateTimeField(auto_now_add=True, null = True)
 
     def __str__(self):
-        return self.name
+        return f'{self.user.username} Profile'
+
+    
 
 
-    @classmethod
-    def search_by_name(cls,search_term):
-        socials = cls.objects.filter(title__icontains=search_term)
-        return socials
