@@ -42,3 +42,22 @@ def home(request):
     return render(request, 'index.html', {'comment_form':comment_form,'images':images,'current_user':current_user,'comment':comment})
 
 
+# @login_required
+def profile(request):
+  current_user = request.user
+  profile = Profile.objects.get(user=request.user)
+  
+  images = Image.objects.filter(uploader_profile_id = current_user.id)
+  post =images.count()
+  
+  return render(request,'profile.html',{"images":images, "post":post,'profile':profile})
+
+class createimage(LoginRequiredMixin, CreateView):
+    
+    model = Image
+    fields =['image','caption'] 
+
+    def form_valid(self,form):
+        form.instance.uploader_profile = self.request.user
+        return super().form_valid(form)
+
