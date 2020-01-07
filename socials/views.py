@@ -61,3 +61,19 @@ class createimage(LoginRequiredMixin, CreateView):
         form.instance.uploader_profile = self.request.user
         return super().form_valid(form)
 
+# @login_required
+def comments(request,image_id):
+  Comments_form = CommentForm()
+  image = Image.objects.filter(pk = image_id).first()
+  if request.method == 'POST':
+    Comments_form = CommentForm(request.POST)
+    if Comments_form.is_valid():
+      comment = Comments_form.save(commit = False)
+      profile = Profile.objects.get(user=request.user)
+      comment.author = profile
+      
+      comment.imagecomment = image
+      comment.save() 
+  return redirect('home')
+
+
