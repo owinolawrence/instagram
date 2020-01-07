@@ -1,6 +1,5 @@
-{% load bootstrap3 %}
+{%load bootstrap3 %}
 {% load static %}
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,25 +8,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Instagram</title>
-
-    {% block styles %}
-    {% bootstrap_css %}
-    {{super}}
+    {%if title%}
+    <title> instagram {{title}}</title>
+    {%else%}
+    <title>instagram</title>
+    {%endif%}
+    {%block styles%}
     <link rel="stylesheet" href="/static/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
-    {% endblock %}
+    {{super}}
+
+    {%bootstrap_css%}
+
+    
+    {%endblock%}
+
+    
 </head>
+
 <body>
     {% include "navbar.html" %}
-    {% block content %}
-    {% endblock %}
+    {%block content%}
 
-    {% block scripts %}
-    <script src="/static/js/scripts.js"></script>
+    {%endblock%}
+
+    {%block scripts%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %}
-    {% endblock%}
+
+    {%bootstrap_javascript%}
+    {%endblock%}
+
 </body>
 
 </html>
