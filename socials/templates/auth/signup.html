@@ -1,16 +1,18 @@
 {% extends 'base.html'%}
 {% load crispy_forms_tags%}
-<link rel="stylesheet" href="/static/css/styles.css">
+
 
 {%block content%}
 
 <div class="container">
     <div class="row">
+        
         <div class="col-md-2 ">
+
         </div>
         <div class="col-md-8 signup text-center mt-5 ">
-            <h1 class='logo'>My Profile</h1>
-            <p style="font-weight: 600;" class="signup">Sign up to see photos from your friends</p>
+            <h1 class='logo'>Instagram</h1>
+            <p style="font-weight: 600;" class="signuph">Sign-up to see photos from your friends</p>
             <form method="post" id='mysignup'>
                 {% csrf_token %}
 
