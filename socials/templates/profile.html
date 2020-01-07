@@ -1,0 +1,98 @@
+{% extends 'base.html'%}
+
+{%block content%}
+{%include 'navbar.html'%}
+<div class="container profile">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="{{user.profile.profile_pic.url}}" alt="" class="img-circle"
+                style="width:100px;height: 100px; border:solid; border-color:rgb(223, 156, 169)">
+
+        </div>
+        <div class="col-md-8">
+            <h1 style="font-weight: 800; font-size: 22px;">{{user.username}} &nbsp; <a class="btn btn-lg"
+                    style="border: solid; border-color: rgb(202, 196, 196); border-width:1px;height:38px; font-size:16px;font-weight: 800;"
+                    href="{%url 'update_profile'%}"> Edit Profile </a> &nbsp; <a href=""><i class="fas fa-cog"
+                        style='color:black;'></i></a></h1>
+
+        </div>
+
+    </div>
+    <div class="row ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h4> &nbsp;{{post}} <span class='bold'>Posts</span> &nbsp; 1<span class='bold'>Followers</span> &nbsp; 1
+                <span class='bold'>Following</span> </h4>
+            <a class="btn btn-lg" href="{%url 'logout'%}"
+                style="border: solid; border-color: rgb(202, 196, 196); border-width:1px;height:38px; font-size:16px;font-weight: 800;">LogOut</a>
+            <span></span>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+<br>
+<br>
+<div class="container">
+    <div class='bio'>
+        <h3>{{profile.bio}}</h3>
+    </div>
+
+</div>
+<div class=container>
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <ul class="nav text-center" id="my" role="tablist">
+                <li class="nav-item">
+                    <a href="#posts" class="nav-link text-monospace font-weight-bold" data-toggle="tab" role="tab"
+                        aria-controls="posts" aria-selected="false"><i class="far fa-calendar-plus"></i>
+                        POSTS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#igtv" class="nav-link text-monospace font-weight-bold " data-toggle="tab" role="tab"
+                        aria-controls="posts" aria-selected="false"><i class="fas fa-tv"></i>
+                        IGTV
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#saved" class="nav-link text-monospace font-weight-bold " data-toggle="tab" role="tab"
+                        aria-controls="posts" aria-selected="false"><i class="far fa-bookmark"></i>
+                        SAVED
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tagged" class="nav-link text-monospace font-weight-bold " data-toggle="tab" role="tab"
+                        aria-controls="posts" aria-selected="false"><i class="fas fa-user-tag"></i>
+                        TAGGED
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    {% if images %}
+    <div class="card-columns">
+        {% for image in images %}
+        <div class="card mycard ">
+            <img src="{{image.image.url}}" alt="" class="img-responsive card-img-top profileimg">
+            <div class="image-overlay">
+                <a href=""><i class="fas fa-comments"></i> {{image.get_comments|length}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href=""> <i class="fas fa-heart"></i>{{image.total_likes}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{%url 'delete' image_id=image.id %}"> <i class="fas fa-trash"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+
+
+
+{%endblock%}

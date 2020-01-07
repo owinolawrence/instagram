@@ -33,7 +33,7 @@ class Image(models.Model):
     date = models.DateTimeField(auto_now_add=True, null= True)
 
     '''Method to filter database results'''
-
+a
     @classmethod
     def showall_images(cls):
         images = cls.objects.all()

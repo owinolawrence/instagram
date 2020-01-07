@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags%}
+
+<link rel="stylesheet" href="/static/css/styles.css">
+{%block content%}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-2 ">
+            
+        </div>
+        <div class="col-md-8 signup text-center mt-5 ">
+            <h1 class= 'logo'>My Profile</h1>
+            <p style="font-weight: 600;" class = "signup">Sign-In to see photos from your friends</p>
+            <form method="post" id = 'mysignup'>
+                {% csrf_token %}
+               
+                {% for field in form%}
+                <p>
+                    <small>{{ field.label_tag }}</small> <br>
+                    <span id = 'field'>{{ field }}</span>
+                    <br>
+                
+                    
+                    {% for error in field.errors %}
+                        <p style="color: rgb(255, 208, 0)">{{ error }}</p>
+                    {% endfor %}
+                </p>
+             {% endfor %} 
+                <button type="submit" class="btn btn-primary btn-lg " >Sign In</button>
+                <p>Need an  an account?<a href="{% url 'signup' %}">Sign Up</a></p>
+            </form>
+            
+        </div>
+        <div class="col-md-2 ">
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}
