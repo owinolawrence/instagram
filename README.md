@@ -24,7 +24,7 @@ comment on photos
 6 Follow other users
 
 
-#INSTALLATION
+## INSTALLATION
 1.set up a virtual environment using the following command.
 
 python3 -m venv  virtual
