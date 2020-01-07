@@ -77,3 +77,39 @@ def comments(request,image_id):
   return redirect('home')
 
 
+def like_post(request):
+  post = get_object_or_404(Image,id=request.POST.get('post_id'))
+  profile = Profile.objects.get(user=request.user)
+ 
+  post.likes.add(profile)
+
+ 
+  return redirect(post.get_absolute_url())
+
+
+def delete(request, image_id):
+  post = Image.objects.get(pk=image_id)
+  post.delete_post()
+  return redirect('my_profile')
+
+
+
+
+# @login_required
+def update_profile(request):
+  if request.method == 'POST':
+    user_form = UpdateUser(request.POST,instance=request.user)
+    profile_form = UpdateProfile(request.POST,request.FILES,instance=request.user.profile)
+    if user_form.is_valid() and profile_form.is_valid():
+      user_form.save()
+      profile_form.save()
+      messages.success(request,'Your Profile account has been updated successfully')
+      return redirect('my_profile')
+  else:
+    user_form = UpdateUser(instance=request.user)
+    profile_form = UpdateProfile(instance=request.user.profile) 
+  forms = {
+    'user_form':user_form,
+    'profile_form':profile_form
+  }
+  return render(request,'update_profile.html',forms)
