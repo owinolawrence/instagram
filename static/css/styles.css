@@ -5,11 +5,11 @@
     font-family: 'Cookie', cursive;
   }
 
-  /* body{
+   body{
     background-image:url('https://cdn.pixabay.com/photo/2018/04/14/17/57/instagram-3319588__340.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
-  } */
+  } 
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
